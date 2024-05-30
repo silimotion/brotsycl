@@ -68,6 +68,7 @@ These benchmarks were measured using the 'time' utility ("user" tab), and compil
 |  AMD 7600 CPU (OpenMP) | 14m 16.409s  |     57.380s  |
 |  AMD 6600 GPU          |      9.906s  |      1.269s  |
 |  AMD 7600 iGPU         |  2m 34.451s  |      9.509s  |
+|  AMD 5600H iGPU        |     56.970s  |      3.901s  |
 
 ## Limitations
 
