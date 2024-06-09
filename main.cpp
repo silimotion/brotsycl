@@ -240,7 +240,7 @@ int main(int argc, char *argv[])
         {
             D.emplace(range(canvas_x_size, canvas_y_size));
         }
-        catch(const hipsycl::sycl::runtime_error& e)
+        catch (const exception &e)
         {
             std::cout << "Error processing file" << std::endl;
             exit(-1);

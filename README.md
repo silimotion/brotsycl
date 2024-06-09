@@ -1,6 +1,6 @@
 # brotsycl
 
-brotsycl is a CLI utility that allows to create .ppm images of the Mandelbrot set, for scientists and artists. Leveraging the SYCL language, it can be run
+brotsycl is a Mandelbrot set image generator, for scientists and artists. Leveraging the SYCL language, it can be run
 on CPUs and GPUs, allowing for very fast computation.
 
 ## Usage
@@ -15,16 +15,16 @@ It produces a square 1024x1024 image with (-2, -2) bottom-left, and (2, 2) upper
 
 After doing the heavy calculations, a buffer file is created. It can be fed to the program with -i to skip the computation phase.
 
-There will be an all-architectures executable in releases Soon™. View [#Limitations](#limitations) for more info
+There is an almost-all-architectures executable in [releases](https://github.com/silimotion/brotsycl/releases/latest). It has been tested and worked on AMD HIP GPU systems, and CPUs. Work is ongoing to add support to other architectures. It may or may not work on OpenCL devices. If the executable does not work on one of the supported systems please raise an issue. For more information on support, view [#Limitations](#limitations).
 
 ## Building
 
-You first need a SYCL compiler, such as [OpenSYCL](https://github.com/OpenSYCL/OpenSYCL) or DPC++. If you wish to have gpu acceleration, 
+You first need a SYCL compiler, such as [AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp) or DPC++. If you wish to have gpu acceleration, 
 you'll need the appropiate drivers installed, and compile with a capable compiler.
 
 Once you have a functional installation you can compile the project. If using the OpenSYCL compiler, you may compile using the following command:
 ```bash
-syclcc --opensycl-targets="omp;generic" -Ofast -flto -o brotsycl main.cpp 
+acpp --opensycl-targets="omp;generic" -Ofast -flto -o brotsycl main.cpp 
 ```
 ## Examples and Gallery
 
@@ -72,7 +72,7 @@ These benchmarks were measured using the 'time' utility ("user" tab), and compil
 
 ## Limitations
 
-Due to the very early stage of SYCL compilers, it is hard to get a generic SYCL executable. Work is being done by the OpenSYCL team to 
+Due to the very early stage of SYCL compilers, it is hard to get a generic SYCL executable. Work is being done by the AdaptiveCpp team to 
 develop the SSCP generic compilation. Until everything is polished enough, it will be difficult to produce a tiny and performant downloadable executable runnable on all architectures.
 
 Using the GPU that runs the displays for the calculations may cause freezing. I am investigating this to clarify whether it is a bug in SYCL, the compiler, the program, or intended behaviour.
